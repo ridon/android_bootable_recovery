@@ -40,7 +40,11 @@
 // Set this to 0 to interpret 'erase' transfers to mean do a
 // BLKDISCARD ioctl (the normal behavior).  Set to 1 to interpret
 // erase to mean fill the region with zeroes.
+#ifdef BOARD_DEBUG_ERASE
+#define DEBUG_ERASE  1
+#else
 #define DEBUG_ERASE  0
+#endif
 
 #ifndef BLKDISCARD
 #define BLKDISCARD _IO(0x12,119)

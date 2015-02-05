@@ -19,6 +19,10 @@ LOCAL_MODULE_TAGS := eng
 
 LOCAL_SRC_FILES := $(updater_src_files)
 
+#ifeq ($(BOARD_BLOCKIMG_ERASE_WITH_ZEROES), true)
+LOCAL_CFLAGS += -DBOARD_DEBUG_ERASE
+#endif
+
 #ifeq ($(TARGET_USERIMAGES_USE_EXT4), true)
 LOCAL_CFLAGS += -DUSE_EXT4
 LOCAL_CFLAGS += -Wno-unused-parameter
